@@ -1,3 +1,4 @@
+# Classe que representa um funcionário
 class Funcionario:
 
     def __init__(self, nome, cargo, salario):
@@ -5,27 +6,36 @@ class Funcionario:
         self.cargo = cargo
         self.salario = salario
 
+    # Método para calcular bônus
     def calcular_bonus(self):
         return self.salario * 0.10
 
 
+# Classe que gerencia a folha de pagamento
 class FolhaPagamento:
 
     def __init__(self, funcionarios):
         self.funcionarios = funcionarios
 
     def calcular_total_bonus(self, valor_x):
+
         total = 0
 
+        # Percorre os objetos da lista
         for funcionario in self.funcionarios:
+
             if funcionario.salario > valor_x:
+
                 bonus = funcionario.calcular_bonus()
+
                 print(funcionario.nome, "recebe bônus de", bonus)
+
                 total += bonus
 
         return total
 
 
+# Criando objetos da classe Funcionario
 funcionarios = [
     Funcionario("Ana", "Gerente", 6000),
     Funcionario("João", "Vendedor", 3000),
