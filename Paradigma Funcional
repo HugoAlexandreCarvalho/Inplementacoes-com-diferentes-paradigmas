@@ -8,10 +8,23 @@ funcionarios = [
 
 valor_x = 4000
 
+# Filtra funcionários com salário maior que X
 filtrados = list(filter(lambda f: f["salario"] > valor_x, funcionarios))
 
-bonus = list(map(lambda f: f["salario"] * 0.10, filtrados))
+# Cria nova lista com nome e bônus
+bonus_funcionarios = list(map(
+    lambda f: {
+        "nome": f["nome"],
+        "bonus": f["salario"] * 0.10
+    },
+    filtrados
+))
 
-total = reduce(lambda acc, b: acc + b, bonus, 0)
+# Mostra bônus de cada funcionário
+for f in bonus_funcionarios:
+    print(f["nome"], "recebe bônus de", f["bonus"])
+
+# Soma total de bônus
+total = reduce(lambda acc, f: acc + f["bonus"], bonus_funcionarios, 0)
 
 print("Total gasto com bônus:", total)
