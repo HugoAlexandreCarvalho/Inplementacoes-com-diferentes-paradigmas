@@ -1,0 +1,17 @@
+from functools import reduce
+
+funcionarios = [
+    {"nome": "Ana", "cargo": "Gerente", "salario": 6000},
+    {"nome": "João", "cargo": "Vendedor", "salario": 3000},
+    {"nome": "Carlos", "cargo": "Analista", "salario": 4500}
+]
+
+valor_x = 4000
+
+filtrados = list(filter(lambda f: f["salario"] > valor_x, funcionarios))
+
+bonus = list(map(lambda f: f["salario"] * 0.10, filtrados))
+
+total = reduce(lambda acc, b: acc + b, bonus, 0)
+
+print("Total gasto com bônus:", total)
