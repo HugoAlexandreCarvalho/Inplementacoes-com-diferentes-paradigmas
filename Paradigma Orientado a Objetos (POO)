@@ -1,0 +1,39 @@
+class Funcionario:
+
+    def __init__(self, nome, cargo, salario):
+        self.nome = nome
+        self.cargo = cargo
+        self.salario = salario
+
+    def calcular_bonus(self):
+        return self.salario * 0.10
+
+
+class FolhaPagamento:
+
+    def __init__(self, funcionarios):
+        self.funcionarios = funcionarios
+
+    def calcular_total_bonus(self, valor_x):
+        total = 0
+
+        for funcionario in self.funcionarios:
+            if funcionario.salario > valor_x:
+                bonus = funcionario.calcular_bonus()
+                print(funcionario.nome, "recebe bônus de", bonus)
+                total += bonus
+
+        return total
+
+
+funcionarios = [
+    Funcionario("Ana", "Gerente", 6000),
+    Funcionario("João", "Vendedor", 3000),
+    Funcionario("Carlos", "Analista", 4500)
+]
+
+folha = FolhaPagamento(funcionarios)
+
+total = folha.calcular_total_bonus(4000)
+
+print("Total gasto com bônus:", total)
