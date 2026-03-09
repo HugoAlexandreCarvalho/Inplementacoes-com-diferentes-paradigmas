@@ -23,3 +23,4 @@ for funcionario in funcionarios:
         total_bonus += bonus
 
 print("Total gasto com bônus:", total_bonus)
+
