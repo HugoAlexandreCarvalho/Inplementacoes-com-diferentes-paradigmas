@@ -1,0 +1,16 @@
+funcionarios = [
+    {"nome": "Ana", "cargo": "Gerente", "salario": 6000},
+    {"nome": "João", "cargo": "Vendedor", "salario": 3000},
+    {"nome": "Carlos", "cargo": "Analista", "salario": 4500}
+]
+
+valor_x = 4000
+total_bonus = 0
+
+for funcionario in funcionarios:
+    if funcionario["salario"] > valor_x:
+        bonus = funcionario["salario"] * 0.10
+        print(funcionario["nome"], "recebe bônus de", bonus)
+        total_bonus += bonus
+
+print("Total gasto com bônus:", total_bonus)
